@@ -29,12 +29,12 @@ func ball_moviment(mouse_pos) -> void:
 onready var cam : Position3D = $"../Cam"
 var speed : float = 0.0005
 func moviment() -> void:
-	var velocity : Vector3
-	velocity.z += Ball.position.y * cam.global_transform.basis.z.z  * speed
-	velocity.x += Ball.position.y * cam.global_transform.basis.z.x  * speed
-	velocity.x += Ball.position.x * cam.global_transform.basis.z.z  * speed
-	velocity.z += -Ball.position.x * cam.global_transform.basis.z.x  * speed
-	cam.global_transform.origin += (velocity)
+	var pos : Vector3
+	pos.z += Ball.position.y * cam.global_transform.basis.z.z  * speed
+	pos.x += Ball.position.y * cam.global_transform.basis.z.x  * speed
+	pos.x += Ball.position.x * cam.global_transform.basis.z.z  * speed
+	pos.z += -Ball.position.x * cam.global_transform.basis.z.x  * speed
+	cam.global_transform.origin += (pos)
 
 func _physics_process(delta):
 	moviment()
